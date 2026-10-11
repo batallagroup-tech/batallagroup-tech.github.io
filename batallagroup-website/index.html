@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Batalla Group — Tecnología para el México real</title>
-  <meta name="description" content="Batalla Group es una empresa tecnológica mexicana que diseña y construye productos digitales para zonas semiurbanas y rurales de México." />
+  <title>Batalla Group — Estudio Tecnológico Mexicano · Apps &amp; Software</title>
+  <meta name="description" content="Batalla Group es un estudio mexicano de desarrollo de aplicaciones móviles y software moderno. Creadores de VoR (Verdad o Reto) y productos digitales intuitivos." />
   <meta name="keywords" content="Batalla Group, tecnología México, productos digitales, startup mexicano, desarrollo de software, Puebla, Necaxa, Juan Galindo, educación digital, herramientas para docentes, herramientas para médicos, herramientas para arquitectos, herramientas para contadores, herramientas para abogados, herramientas gratuitas, herramientas digitales, convertidor de imagen, compresor de imagen, generador de QR, escaner INE, Batalla ID, biometría, WebAuthn, Supabase, autenticación biométrica, Batalla Edu, Batalla Especialistas, Batalla Business, Batalla Tools, comercio local digital, vitrina digital, menú digital, software profesionistas, software PYME, software PyME México, zonas rurales, zonas semiurbanas, tecnología accesible, México real, herramientas online gratis, producción privada, sin servidor, sin nube, 100 privado, Batalla Group S.A.S., batallagroup.com, batallagroup tech, SaaS México, SaaS rural, fintech México, edtech México, healthtech México, Ramses Batalla, Ramses Batalla CEO, CEO Batalla Group, fundador Batalla Group, emprendedor mexicano, emprendedor Puebla, creador de contenido México, creador de contenido TikTok, ramses_batalla, @ramses_batalla, TikTok México, TikTok tecnología, influencer tecnología México, TikTok emprendimiento, TikToker mexicano, contenido tecnología TikTok, startups México TikTok, emprendimiento digital México, joven emprendedor México, CEO joven México, fundador startup México, tecnología para el México real, innovación México, innovación tecnológica rural, software hecho en México, made in México, developer México, programador mexicano, Ramses Batalla programador, Ramses Batalla developer, Ramses Batalla emprendedor, Ramses Batalla Puebla, Batalla Group fundador, Batalla Group CEO, quién es Ramses Batalla, historia Batalla Group" />
 
   <meta name="author" content="Batalla Group S.A.S." />
@@ -1335,6 +1335,226 @@
       .stat { border-right: none; border-bottom: 1px solid var(--border); }
       .stat:last-child { border-bottom: none; border-top: none; grid-column: auto; }
     }
+  
+    /* ── 3D PHONE MOCKUP (VoR) ── */
+    .phone-3d-wrapper {
+      perspective: 1200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 40px 20px;
+    }
+    .phone-3d-glow {
+      position: absolute;
+      width: 280px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(236,72,153,0.25) 0%, rgba(139,92,246,0.15) 50%, transparent 70%);
+      filter: blur(40px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .phone-3d {
+      width: 290px;
+      background: #09090b;
+      border: 3px solid #27272a;
+      border-radius: 46px;
+      padding: 12px;
+      box-shadow: 
+        0 30px 70px -15px rgba(0,0,0,0.95),
+        0 0 50px rgba(236, 72, 153, 0.22),
+        inset 0 1px 2px rgba(255,255,255,0.25);
+      transform: rotateY(-8deg) rotateX(4deg);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+      position: relative;
+      z-index: 1;
+    }
+    .phone-3d:hover {
+      transform: rotateY(0deg) rotateX(0deg) translateY(-8px);
+      box-shadow: 
+        0 40px 90px -15px rgba(0,0,0,0.98),
+        0 0 70px rgba(236, 72, 153, 0.4),
+        inset 0 1px 2px rgba(255,255,255,0.35);
+    }
+    .phone-island {
+      width: 86px;
+      height: 18px;
+      background: #000;
+      border-radius: 20px;
+      margin: 4px auto 12px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 8px;
+      box-shadow: inset 0 0 2px rgba(255,255,255,0.1);
+    }
+    .phone-island-cam {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #18181b;
+      border: 1px solid #3f3f46;
+    }
+    .phone-vor-screen {
+      background: linear-gradient(180deg, #110524 0%, #080312 60%, #030108 100%);
+      border-radius: 36px;
+      overflow: hidden;
+      min-height: 520px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.08);
+      font-family: 'Inter', sans-serif;
+    }
+    .vor-topbar {
+      padding: 10px 16px 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 0.02em;
+    }
+    .vor-header {
+      text-align: center;
+      padding: 12px 16px 8px;
+    }
+    .vor-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      background: linear-gradient(135deg, #f43f5e 0%, #ec4899 50%, #a855f7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .vor-badge-mode {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: rgba(236,72,153,0.15);
+      border: 1px solid rgba(236,72,153,0.35);
+      color: #f472b6;
+      margin-top: 4px;
+    }
+    .vor-card {
+      margin: 16px 14px 12px;
+      background: linear-gradient(145deg, rgba(244,63,94,0.15) 0%, rgba(168,85,247,0.15) 100%);
+      border: 1.5px solid rgba(244,63,94,0.35);
+      border-radius: 22px;
+      padding: 24px 16px;
+      text-align: center;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.6);
+      backdrop-filter: blur(10px);
+    }
+    .vor-card-tag {
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #f43f5e;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .vor-card-text {
+      font-size: 13.5px;
+      font-weight: 600;
+      line-height: 1.55;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+    .vor-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      padding: 0 14px;
+      margin-top: 8px;
+    }
+    .vor-btn-verdada {
+      background: linear-gradient(135deg, #06b6d4, #3b82f6);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 12px 8px;
+      border-radius: 12px;
+      text-align: center;
+      border: none;
+      box-shadow: 0 6px 18px rgba(6,182,212,0.3);
+      cursor: default;
+    }
+    .vor-btn-reto {
+      background: linear-gradient(135deg, #f43f5e, #ec4899);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 12px 8px;
+      border-radius: 12px;
+      text-align: center;
+      border: none;
+      box-shadow: 0 6px 18px rgba(244,63,94,0.35);
+      cursor: default;
+    }
+    .vor-next {
+      margin: 16px 14px 0;
+      padding: 12px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: #e4e4e7;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .floating-badge {
+      position: absolute;
+      background: rgba(18,18,22,0.9);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 14px;
+      padding: 10px 14px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.6);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 2;
+      animation: badgeFloat 4s ease-in-out infinite;
+    }
+    .floating-badge-top {
+      top: 60px;
+      right: -24px;
+      animation-delay: 0.5s;
+    }
+    .floating-badge-bottom {
+      bottom: 60px;
+      left: -28px;
+      animation-delay: 1.5s;
+    }
+    @keyframes badgeFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    @media (max-width: 640px) {
+      .floating-badge-top { right: 0; top: 20px; }
+      .floating-badge-bottom { left: 0; bottom: 20px; }
+      .phone-3d { transform: none; width: 260px; }
+      .phone-vor-screen { min-height: 480px; }
+    }
+
   </style>
 </head>
 <body>
@@ -1346,11 +1566,10 @@
         <a href="#hero" class="logo">Batalla Group</a>
         <nav>
           <a href="#nosotros">Nosotros</a>
-          <a href="#ecosistema">Ecosistema</a>
-          <a href="#vision">Software &amp; Hardware</a>
+          <a href="#aplicaciones">Nuestras Apps</a>
           <a href="#equipo">Equipo</a>
           <a href="#contacto">Contacto</a>
-          <a href="#batalla-id" onclick="openBatallaIdModal(event)" class="btn-batalla-id">Batalla ID</a>
+          <a href="https://play.google.com/store/apps/details?id=com.batallagroup.vor" target="_blank" rel="noopener" class="btn-batalla-id" style="color: #00ff88; border-color: rgba(0,255,136,0.35);">Descargar VoR ➔</a>
         </nav>
         <button class="hamburger" id="hamburger" aria-label="Menú">
           <span></span><span></span><span></span>
@@ -1361,31 +1580,33 @@
 
   <div class="mobile-nav" id="mobile-nav">
     <a href="#nosotros" class="mobile-link">Nosotros</a>
-    <a href="#ecosistema" class="mobile-link">Ecosistema</a>
-    <a href="#vision" class="mobile-link">Software &amp; Hardware</a>
+    <a href="#aplicaciones" class="mobile-link">Nuestras Aplicaciones</a>
     <a href="#equipo" class="mobile-link">Equipo</a>
     <a href="#contacto" class="mobile-link">Contacto</a>
-    <a href="#batalla-id" onclick="openBatallaIdModal(event)" class="mobile-link" style="color: var(--accent-cyan); font-weight:700;">Batalla ID — Acceso</a>
+    <a href="https://play.google.com/store/apps/details?id=com.batallagroup.vor" target="_blank" class="mobile-link" style="color: #00ff88; font-weight:700;">Descargar VoR en Google Play ➔</a>
   </div>
 
-  <!-- ══ HERO MATRIZ ══ -->
+  <!-- ══ HERO ══ -->
   <section id="hero">
     <div class="container">
       <div class="hero-content">
-        <div class="hero-anim-0" style="margin-bottom: 20px;">
+        <div class="hero-anim-0" style="margin-bottom: 24px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
           <span class="badge" style="border-color: var(--accent-cyan); color: var(--accent-cyan);">
-            Empresa Tecnológica Mexicana · Matriz Corporativa
+            Estudio Tecnológico Mexicano · Apps &amp; Software
+          </span>
+          <span class="badge" style="border-color: rgba(255,255,255,0.18); color: var(--text-secondary); font-size: 11px;">
+            En proceso de registro S.A.S.
           </span>
         </div>
         <h1 class="hero-title hero-anim-0">
           Batalla<br /><span>Group</span>
         </h1>
         <p class="hero-subtitle hero-anim-1">
-          La matriz tecnológica que simplifica la vida cotidiana, profesional y comercial del México real con soluciones integradas de software y hardware.
+          Desarrollamos aplicaciones móviles y software moderno que conectan, entretienen y resuelven el día a día con tecnología intuitiva, ágil y de alto impacto.
         </p>
         <div class="hero-cta hero-anim-2">
-          <a href="#ecosistema" class="btn btn-primary">Explorar Ecosistema ↓</a>
-          <a href="#nosotros" class="btn btn-ghost">Nuestra Filosofía Corporativa &nbsp;→</a>
+          <a href="#aplicaciones" class="btn btn-primary">Ver Nuestras Aplicaciones ↓</a>
+          <a href="#nosotros" class="btn btn-ghost">Conoce el Estudio &nbsp;→</a>
         </div>
       </div>
     </div>
@@ -1395,250 +1616,225 @@
   <!-- ══ NOSOTROS / MANIFIESTO ══ -->
   <section id="nosotros">
     <div class="container section-pad">
-      <div class="section-label reveal-left">01 — Filosofía Corporativa</div>
+      <div class="section-label reveal-left">01 — Quiénes Somos</div>
       <div class="nosotros-grid">
         <div class="reveal reveal-delay-1">
-          <h2 class="nosotros-headline">La base tecnológica para todo lo que importa.</h2>
+          <h2 class="nosotros-headline">Tecnología ágil, cercana e independiente.</h2>
         </div>
         <div class="reveal reveal-delay-2">
           <div class="nosotros-body">
-            <p>Batalla Eduup es la matriz tecnológica mexicana diseñada para abarcar múltiples áreas de la vida diaria: desde facilitar tareas personales cotidianas hasta potenciar el trabajo de profesionistas (docentes, médicos, consultores) y transformar la operación de comercios comunitarios.</p>
-            <p>No creamos herramientas aisladas; construimos un ecosistema unificado donde todo se conecta en un solo lugar de manera sencilla, transparente y sin fricción informática ni comisiones excesivas.</p>
-            <p>Nacimos en Puebla con la convicción de que el México semiurbano y rural merece acceso directo a tecnología de punta construida desde adentro, para todos.</p>
+            <p><strong>Batalla Group</strong> es un estudio mexicano de desarrollo de software y aplicaciones móviles con sede en Puebla. Nacemos con el propósito de diseñar productos digitales con identidad propia, rendimiento excepcional y utilidad directa para los usuarios.</p>
+            <p>Creemos en la simplicidad: interfaces limpias, código ligero y diversión sin rodeos. En lugar de sistemas burocráticos y complejos, apostamos por herramientas y experiencias móviles que se disfruten al instante.</p>
+            <p>Actualmente nos encontramos en proceso formal de registro mercantil como <strong>Sociedad por Acciones Simplificada (S.A.S.)</strong>, consolidando nuestra estructura para seguir lanzando aplicaciones seguras, transparentes y de alto alcance en tiendas de todo el mundo.</p>
           </div>
         </div>
       </div>
       <div class="nosotros-stats reveal">
         <div class="stat">
           <div class="stat-num">2026</div>
-          <div class="stat-label">Fundación Corporativa</div>
+          <div class="stat-label">Fundación en Puebla, MX</div>
         </div>
         <div class="stat">
-          <div class="stat-num">4</div>
-          <div class="stat-label">Pilares de Solución</div>
+          <div class="stat-num">S.A.S.</div>
+          <div class="stat-label">En Proceso de Registro</div>
         </div>
         <div class="stat">
           <div class="stat-num">100%</div>
-          <div class="stat-label">Independencia &amp; Privacidad</div>
+          <div class="stat-label">Desarrollo Independiente</div>
         </div>
-      </div>
-
-      <!-- Banner de Transparencia de Datos y Arquitectura Local -->
-      <div class="transparencia-banner reveal" style="margin-top: 60px; padding: 28px 36px; background: var(--surface); border: 1px solid var(--border-light); border-radius: 4px; display: flex; flex-direction: column; gap: 8px;">
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <span class="badge-dot" style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--text-primary);"></span>
-          <span style="font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-primary);">Infraestructura Transparente &amp; Procesamiento Local</span>
-        </div>
-        <p style="font-size: 0.88rem; font-weight: 300; color: var(--text-secondary); line-height: 1.7; margin: 0;">
-          &ldquo;Nuestras herramientas cotidianas procesan tus archivos 100% dentro de tu navegador. Sin servidores intermediarios ni riesgos de privacidad. Estamos construyendo el ecosistema Batalla ID de forma progresiva e independiente.&rdquo;
-        </p>
       </div>
     </div>
   </section>
 
-  <!-- ══ ECOSISTEMA MATRIX (PILARES DE SOLUCIÓN) ══ -->
-  <section id="ecosistema" style="border-bottom: 1px solid var(--border);">
+  <!-- ══ NUESTRAS APLICACIONES (SHOWCASE ESTELAR 3D) ══ -->
+  <section id="aplicaciones" style="border-bottom: 1px solid var(--border);">
     <div class="container section-pad">
-      <div class="section-label reveal-left">02 — Arquitectura del Ecosistema</div>
-      <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 16px; line-height: 1.1;">
-        Soluciones Multinivel
+      <div class="section-label reveal-left">02 — Catálogo de Desarrollo</div>
+      <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(2rem, 4.5vw, 3.4rem); font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 16px; line-height: 1.1;">
+        Nuestras Aplicaciones
       </h2>
-      <p style="color: var(--text-secondary); max-width: 720px; font-weight: 300; margin-bottom: 48px; font-size: 1.05rem;">
-        Un solo punto de partida formal que conecta herramientas personales, de profesionales, comercios locales y servicios comunitarios.
+      <p style="color: var(--text-secondary); max-width: 720px; font-weight: 300; margin-bottom: 56px; font-size: 1.05rem;">
+        Creamos experiencias nativas pensadas para divertir, facilitar la vida diaria y conectar a las personas con el mejor rendimiento.
       </p>
 
-      <div class="matrix-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
-        
-        <!-- PILAR 1: PERSONAL & COTIDIANO -->
-        <div class="product-card reveal reveal-delay-1" style="display:flex; flex-direction:column; justify-content:space-between;">
+      <!-- SHOWCASE PRINCIPAL: VoR - VERDAD O RETO (3D PHONE) -->
+      <div style="background: linear-gradient(145deg, rgba(20,20,28,0.95) 0%, rgba(12,12,16,0.95) 100%); border: 1px solid var(--border-light); border-radius: 28px; padding: 48px 36px; margin-bottom: 48px; box-shadow: 0 24px 60px rgba(0,0,0,0.6);" class="reveal">
+        <div style="display: grid; grid-template-columns: 1.15fr 1fr; gap: 50px; align-items: center;" class="showcase-desktop-grid">
+          
+          <!-- LADO IZQUIERDO: INFORMACIÓN DE VOR -->
           <div>
-            <span class="badge" style="border-color: var(--border-light); margin-bottom: 16px;">01 · Personal &amp; Cotidiano</span>
-            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; margin: 16px 0 12px; line-height: 1.1;">Batalla Tools</h3>
-            <p class="product-desc" style="margin-bottom: 28px;">
-              Facilitamos la vida cotidiana con utilidades rápidas de un solo clic. Herramientas 100% privadas en navegador como el Escáner de INE 1:1 a hoja Carta, limpiador de listas y convertidores de documentos.
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 16px;">
+              <span class="badge" style="border-color: #f43f5e; color: #f43f5e; background: rgba(244,63,94,0.1); font-weight: 700;">
+                ★ Aplicación Más Popular
+              </span>
+              <span class="badge" style="border-color: #00e676; color: #00e676; background: rgba(0,230,118,0.1);">
+                Aprobada en Google Play
+              </span>
+            </div>
+            
+            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 800; text-transform: uppercase; line-height: 1.1; margin-bottom: 20px; background: linear-gradient(135deg, #ffffff 30%, #f472b6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+              VoR — Verdad o Reto
+            </h3>
+
+            <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; margin-bottom: 28px; font-weight: 300;">
+              El juego social definitivo para transformar cualquier fiesta, reunión o noche de amigos en momentos inolvidables. Cientos de verdades picantes y retos atrevidos diseñados para dinamizar grupos y romper el hielo al instante.
             </p>
-          </div>
-          <div>
-            <a href="utilidades.html" class="btn btn-primary">Abrir Batalla Tools &rarr;</a>
-          </div>
-        </div>
 
-        <!-- PILAR 2: PROFESIONISTAS & ESPECIALISTAS -->
-        <div class="product-card product-card-featured reveal reveal-delay-2" style="display:flex; flex-direction:column; justify-content:space-between;">
-          <div>
-            <span class="badge badge-dot" style="margin-bottom: 16px;">02 · Profesionistas &amp; Especialistas</span>
-            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; margin: 16px 0 12px; line-height: 1.1;">Batalla Edu &amp; Especialistas</h3>
-            <p class="product-desc" style="margin-bottom: 28px;">
-              Software intuitivo para docentes (procesamiento de listas sin fórmulas, escáner PC-Celular), médicos (consultas y recetas personalizadas simples), consultores, arquitectos, abogados y contadores.
-            </p>
-          </div>
-          <div>
-            <a href="docentes.html" class="btn btn-primary">Entrar a Batalla Edu &rarr;</a>
-          </div>
-        </div>
+            <!-- Lista de puntos clave -->
+            <div style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 36px;">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <span style="color: #00e676; font-size: 16px;">✔</span>
+                <span style="font-size: 0.95rem; color: #e4e4e7;"><strong>Cientos de retos y verdades</strong> originales, divididos por niveles de intensidad.</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <span style="color: #00e676; font-size: 16px;">✔</span>
+                <span style="font-size: 0.95rem; color: #e4e4e7;"><strong>Múltiples modos:</strong> Amigos, Fiestas, Parejas y Noches atrevidas.</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <span style="color: #00e676; font-size: 16px;">✔</span>
+                <span style="font-size: 0.95rem; color: #e4e4e7;"><strong>Sin fricción:</strong> Abre la app y juega al momento sin registros obligatorios.</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <span style="color: #00e676; font-size: 16px;">✔</span>
+                <span style="font-size: 0.95rem; color: #e4e4e7;"><strong>100% en español</strong> y adaptada para todos los jugadores.</span>
+              </div>
+            </div>
 
-        <!-- PILAR 3: NEGOCIOS & COMERCIO LOCAL -->
-        <div class="product-card reveal reveal-delay-1" style="display:flex; flex-direction:column; justify-content:space-between;">
-          <div>
-            <span class="badge" style="border-color: var(--border-light); margin-bottom: 16px;">03 · Negocios &amp; Servicios Locales</span>
-            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; margin: 16px 0 12px; line-height: 1.1;">Batalla Business</h3>
-            <p class="product-desc" style="margin-bottom: 28px;">
-              Vitrina digital ligera para restaurantes, cafeterías, talleres y autolavados. Menús digitales y herramientas comerciales hoy; integración con hardware automatizado mañana.
-            </p>
+            <!-- Botón de descarga oficial -->
+            <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center;">
+              <a href="https://play.google.com/store/apps/details?id=com.batallagroup.vor" target="_blank" rel="noopener" class="btn" style="background: linear-gradient(135deg, #00c853 0%, #00e676 100%); color: #040905; font-weight: 800; font-size: 14px; padding: 16px 32px; border-radius: 8px; box-shadow: 0 10px 28px rgba(0,230,118,0.35); text-decoration: none; display: inline-flex; align-items: center; gap: 12px; transition: transform 0.2s ease, box-shadow 0.2s ease;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M3.609 1.814L13.792 12 3.61 22.186c-.347-.365-.55-.88-.55-1.464V3.278c0-.584.203-1.1.55-1.464zM15.207 13.414l2.585 2.586-13.06 7.424 10.475-10.01zm0-2.828L4.732.576l13.06 7.424-2.585 2.586zm1.414 1.414l3.774 2.146c.92.522.92 1.376 0 1.898l-3.774 2.146-2.293-2.293 2.293-2.297z"/>
+                </svg>
+                Descargar en Google Play &rarr;
+              </a>
+              <span style="font-size: 11px; color: var(--text-muted); font-weight: 400;">Gratis · Android</span>
+            </div>
           </div>
-          <div>
-            <a href="comercio.html" class="btn btn-primary">Ver Comercio Local &rarr;</a>
-          </div>
-        </div>
 
-        <!-- PILAR 4: PLATAFORMAS & BATALLA APPS -->
-        <div class="product-card reveal reveal-delay-2" style="display:flex; flex-direction:column; justify-content:space-between;">
-          <div>
-            <span class="badge" style="border-color: var(--border-light); margin-bottom: 16px;">04 · Redes Comunales &amp; Aplicaciones</span>
-            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; margin: 16px 0 12px; line-height: 1.1;">Batalla Apps</h3>
-            <p class="product-desc" style="margin-bottom: 28px;">
-              Ecosistemas multi-aplicación descentralizados y redes de conectividad comunitaria diseñadas para coordinar clientes, repartidores y servicios locales.
-            </p>
-          </div>
-          <div>
-            <button onclick="openBatallaIdModal(event)" class="btn btn-ghost" style="font-size:11px;">Acceso vía Batalla ID &rarr;</button>
-          </div>
-        </div>
+          <!-- LADO DERECHO: TELÉFONO 3D EN CSS -->
+          <div class="phone-3d-wrapper">
+            <div class="phone-3d-glow"></div>
+            
+            <!-- Floating Badges -->
+            <div class="floating-badge floating-badge-top">
+              <span style="font-size: 18px;">🔥</span>
+              <div>
+                <p style="font-size: 10px; font-weight: 800; color: #fff; margin: 0; text-transform: uppercase;">Modo Fiesta</p>
+                <p style="font-size: 9px; color: #a1a1aa; margin: 0;">+1,000 Preguntas</p>
+              </div>
+            </div>
 
-        <!-- PILAR 5: CORPORATIVO & EMPRESAS (PRÓXIMAMENTE) -->
-        <div class="product-card reveal reveal-delay-3" style="display:flex; flex-direction:column; justify-content:space-between; background: rgba(255,255,255,0.02); border: 1px dashed var(--border-light);">
-          <div>
-            <span class="badge" style="border-color: var(--accent-cyan); color: var(--accent-cyan); margin-bottom: 16px;">05 · Grandes Empresas &amp; Corporativos</span>
-            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; margin: 16px 0 12px; line-height: 1.1; color: var(--text-secondary);">Batalla Enterprise</h3>
-            <p class="product-desc" style="margin-bottom: 28px;">
-              Soluciones integradas a gran escala para gestión corporativa, automatización de procesos a medida e infraestructura en la nube para empresas consolidadas.
-            </p>
+            <div class="floating-badge floating-badge-bottom">
+              <span style="color: #00e676; font-size: 18px;">★</span>
+              <div>
+                <p style="font-size: 10px; font-weight: 800; color: #fff; margin: 0;">Oficial Google Play</p>
+                <p style="font-size: 9px; color: #00e676; margin: 0;">Aprobada y Activa</p>
+              </div>
+            </div>
+
+            <!-- Chassis del Teléfono -->
+            <div class="phone-3d">
+              <div class="phone-island">
+                <div class="phone-island-cam"></div>
+              </div>
+
+              <!-- Pantalla de VoR -->
+              <div class="phone-vor-screen">
+                <div class="vor-topbar">
+                  <span>9:41</span>
+                  <div style="display: flex; gap: 4px; align-items: center;">
+                    <span>5G</span>
+                    <span>100%</span>
+                  </div>
+                </div>
+
+                <div class="vor-header">
+                  <div class="vor-brand">
+                    VoR <span>🔥</span>
+                  </div>
+                  <span class="vor-badge-mode">Modo: Fiesta Picante</span>
+                </div>
+
+                <!-- Tarjeta de juego interactiva visual -->
+                <div class="vor-card">
+                  <div class="vor-card-tag">
+                    <span>⚡ RETO · RONDA 08</span>
+                  </div>
+                  <p class="vor-card-text">
+                    &ldquo;Envía un mensaje de voz cantando el coro de tu canción favorita a la última persona con la que hablaste.&rdquo;
+                  </p>
+                  <div style="font-size: 10px; color: rgba(255,255,255,0.5);">Puntuación: +50 pts</div>
+                </div>
+
+                <!-- Acciones del juego -->
+                <div class="vor-actions">
+                  <div class="vor-btn-verdada">💬 VERDAD</div>
+                  <div class="vor-btn-reto">🔥 RETO</div>
+                </div>
+
+                <div class="vor-next">
+                  Siguiente Jugador &rarr;
+                </div>
+              </div>
+            </div>
           </div>
-          <div>
-            <button onclick="openNotifyModal('Batalla Enterprise')" class="btn btn-ghost" style="font-size:11px; border-color: var(--accent-cyan); color: var(--accent-cyan);">Avísame cuando esté disponible &rarr;</button>
-          </div>
-        </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ HOJA DE RUTA: SOFTWARE + HARDWARE DEL MAÑANA ══ -->
-  <section id="vision" style="border-bottom: 1px solid var(--border); background: var(--surface);">
-    <div class="container section-pad">
-      <div class="section-label reveal-left">03 — Evolución Tecnológica</div>
-      <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center;">
-        <div>
-          <span class="badge" style="border-color: var(--accent-cyan); color: var(--accent-cyan); margin-bottom: 16px;">
-            Innovación Progresiva
-          </span>
-          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; text-transform: uppercase; line-height: 1.1; margin-bottom: 20px;">
-            De Software Intuitivo a Hardware Automatizado
-          </h2>
-          <p style="color: var(--text-secondary); font-weight: 300; line-height: 1.8; margin-bottom: 24px;">
-            Nuestra hoja de ruta integra herramientas digitales hoy y hardware dedicado mañana para transformar la experiencia en comercios locales sin intermediarios:
-          </p>
-          <ul style="list-style: none; display: flex; flex-direction: column; gap: 16px; font-size: 0.92rem; color: var(--text-secondary);">
-            <li style="display: flex; align-items: flex-start; gap: 12px;">
-              <span style="color: var(--accent-cyan); font-weight: 700;">•</span>
-              <div><strong style="color: var(--text-primary);">Restaurantes &amp; Comensales:</strong> Botones físicos en mesas que envían alertas instantáneas al reloj smartwatch del mesero y a pantallas de cocina.</div>
-            </li>
-            <li style="display: flex; align-items: flex-start; gap: 12px;">
-              <span style="color: var(--accent-cyan); font-weight: 700;">•</span>
-              <div><strong style="color: var(--text-primary);">Estacionamientos &amp; Autolavados:</strong> Plumas de acceso automatizadas con pago sencillo por código celular sin comisiones bancarias ni boletaje físico.</div>
-            </li>
-            <li style="display: flex; align-items: flex-start; gap: 12px;">
-              <span style="color: var(--accent-cyan); font-weight: 700;">•</span>
-              <div><strong style="color: var(--text-primary);">Programa de Fidelidad &amp; Referidos:</strong> Modelo Freemium con mes de prueba gratis y recompensas consecutivas de &ldquo;Mes gratis por cada colega o comercio invitado&rdquo;.</div>
-            </li>
-          </ul>
-        </div>
-
-        <div style="background: var(--bg); border: 1px solid var(--border-light); border-radius: 6px; padding: 40px; text-align: center;">
-          <div style="width: 80px; height: 80px; border-radius: 50%; background: rgba(0, 229, 255, 0.1); border: 1.5px solid var(--accent-cyan); display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; box-shadow: 0 0 30px var(--accent-cyan-glow);">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          </div>
-          <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem; font-weight: 700; text-transform: uppercase; margin-bottom: 12px;">
-            Batalla ID — Llave Maestra
-          </h3>
-          <p style="font-size: 0.88rem; color: var(--text-secondary); font-weight: 300; line-height: 1.6; margin-bottom: 24px;">
-            Una sola cuenta biométrica o enlace mágico para acceder a todas las herramientas personales, profesionales y comerciales del ecosistema.
-          </p>
-          <button onclick="openBatallaIdModal(event)" class="btn btn-primary" style="width: 100%; justify-content: center;">Conectar con Batalla ID &rarr;</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ TESTIMONIOS Y MANIFIESTO DE HONESTIDAD ══ -->
-  <section id="testimonios">
-    <div class="container section-pad">
-      <div class="section-label reveal-left">04 — Comunidad &amp; Testimonios</div>
-      
-      <div style="background: var(--surface); border: 1px solid var(--border-light); border-radius: 6px; padding: 40px; margin-bottom: 36px;" class="reveal">
-        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
-          <span class="badge badge-dot">Transparencia Total</span>
-          <span style="font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted);">Empresa Mexicana Nacida en 2026</span>
-        </div>
-        <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 700; text-transform: uppercase; line-height: 1.2; margin-bottom: 16px;">
-          Construyendo Confianza Real, Sin Reseñas Falsas
-        </h2>
-        <p style="color: var(--text-secondary); font-weight: 300; line-height: 1.8; max-width: 840px; font-size: 0.95rem; margin-bottom: 24px;">
-          En Batalla Group creemos en la honestidad absoluta. Recién comenzamos nuestro camino y en lugar de colocar opiniones ficticias prefabricadas, invitamos a la comunidad de docentes, médicos, profesionistas y comercios locales que usan nuestras herramientas a compartir su experiencia real.
-        </p>
-        <button onclick="openTestimonioModal()" class="btn btn-cyan" style="font-size: 12px;">+ Añadir tu testimonio u opinión &rarr;</button>
-      </div>
-
-      <!-- Grid dinámico de testimonios reales recibidos -->
-      <div class="testimonios-grid" id="testimonios-list">
-        <div class="testimonio reveal reveal-delay-1">
-          <p class="testimonio-quote">
-            "Las utilidades 100% locales sin subir archivos a ningún servidor me dan la confianza total para procesar credenciales e impresiones."
-          </p>
-          <div class="testimonio-author">
-            <div class="testimonio-name">Comunidad Batalla</div>
-            <div class="testimonio-role">Usuario de Batalla Tools · Puebla</div>
-          </div>
         </div>
       </div>
 
-    </div>
-  </section>
+      <!-- PRÓXIMOS LANZAMIENTOS -->
+      <div>
+        <div style="margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+          <span style="font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted);">Próximos Desarrollos</span>
+          <div style="flex: 1; height: 1px; background: var(--border);"></div>
+        </div>
 
-  <!-- ══ PRENSA ══ -->
-  <section id="prensa">
-    <div class="container section-pad">
-      <div class="prensa-header">
-        <div>
-          <div class="section-label reveal-left">04 — Prensa</div>
-          <h2 class="prensa-headline reveal reveal-delay-1">En los medios</h2>
-        </div>
-        <a href="mailto:prensa@batallagroup.com" class="prensa-contact-link reveal reveal-delay-2">
-          Contacto de prensa →
-        </a>
-      </div>
-      <div class="prensa-grid">
-        <div class="prensa-card reveal reveal-delay-1">
-          <div class="prensa-source">Próximamente</div>
-          <div class="prensa-title">"La startup tecnológica que apuesta por el México que otros ignoran"</div>
-          <p class="prensa-excerpt">Batalla Group está construyendo infraestructura digital en zonas semiurbanas y rurales que el mercado convencional ha dejado atrás.</p>
-          <div class="prensa-date">— Cobertura en proceso</div>
-        </div>
-        <div class="prensa-card reveal reveal-delay-2">
-          <div class="prensa-source">Próximamente</div>
-          <div class="prensa-title">"Batalla Group: construyendo el futuro digital de las comunidades mexicanas"</div>
-          <p class="prensa-excerpt">Una empresa tecnológica poblana está redefiniendo cómo se construyen productos digitales para el México semiurbano y rural.</p>
-          <div class="prensa-date">— Cobertura en proceso</div>
-        </div>
-        <div class="prensa-card reveal reveal-delay-3">
-          <div class="prensa-source">Kit de prensa</div>
-          <div class="prensa-title">Materiales disponibles para medios</div>
-          <p class="prensa-excerpt">Logos, fotografías, datos de la empresa y ficha de producto disponibles para periodistas y medios que cubran tecnología e innovación en México.</p>
-          <div class="prensa-date">
-            <a href="mailto:prensa@batallagroup.com" style="color:var(--text-secondary);text-decoration:none;">Solicitar kit → prensa@batallagroup.com</a>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+          
+          <!-- PRÓXIMA APP 1: YA VOY -->
+          <div class="product-card reveal reveal-delay-1" style="display: flex; flex-direction: column; justify-content: space-between; border-color: rgba(255,255,255,0.08);">
+            <div>
+              <span class="badge" style="border-color: var(--accent-cyan); color: var(--accent-cyan); margin-bottom: 14px;">
+                En Pruebas · Muy Pronto
+              </span>
+              <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.6rem; font-weight: 700; text-transform: uppercase; margin: 12px 0 10px;">
+                Ya Voy — Delivery Local
+              </h4>
+              <p class="product-desc" style="margin-bottom: 20px;">
+                Plataforma hiperlocal de delivery de comida, mandados y comercio vecinal diseñada para conectar clientes, negocios y repartidores sin comisiones desmedidas.
+              </p>
+            </div>
+            <div>
+              <span style="font-size: 11px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;">
+                Ecosistema de Usuarios y Repartidores
+              </span>
+            </div>
           </div>
+
+          <!-- PRÓXIMA APP 2: KLAB -->
+          <div class="product-card reveal reveal-delay-2" style="display: flex; flex-direction: column; justify-content: space-between; border-color: rgba(255,255,255,0.08);">
+            <div>
+              <span class="badge" style="border-color: rgba(255,255,255,0.15); color: var(--text-secondary); margin-bottom: 14px;">
+                En Desarrollo
+              </span>
+              <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.6rem; font-weight: 700; text-transform: uppercase; margin: 12px 0 10px;">
+                KLab — Productividad Digital
+              </h4>
+              <p class="product-desc" style="margin-bottom: 20px;">
+                Suite de herramientas y micro-utilidades rápidas para estudiantes y profesionistas, con procesamiento local y respeto absoluto por la privacidad de datos.
+              </p>
+            </div>
+            <div>
+              <span style="font-size: 11px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;">
+                Herramientas Ligeras en Navegador
+              </span>
+            </div>
+          </div>
+
         </div>
       </div>
+
     </div>
   </section>
 
@@ -1670,30 +1866,6 @@
             Si quieres ser parte del crecimiento de Batalla Group, conversemos sobre oportunidades de alianza o inversión.
           </p>
           <a href="mailto:batallagroup@gmail.com" class="btn btn-ghost" style="font-size:11px;padding:10px 20px;">Conversar →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ SERVICIOS ══ -->
-  <section id="servicios">
-    <div class="container section-pad">
-      <div class="section-label reveal-left">06 — Servicios</div>
-      <div class="servicios-grid">
-        <div class="servicio reveal reveal-delay-1">
-          <span class="servicio-num">S.01</span>
-          <div class="servicio-title">Desarrollo de plataformas digitales</div>
-          <p class="servicio-desc">Diseñamos y construimos aplicaciones web y móviles adaptadas a las condiciones reales de conectividad y uso de cada región.</p>
-        </div>
-        <div class="servicio reveal reveal-delay-2">
-          <span class="servicio-num">S.02</span>
-          <div class="servicio-title">Logística digital local</div>
-          <p class="servicio-desc">Conectamos negocios y usuarios a través de plataformas diseñadas para la operación real de cada comunidad.</p>
-        </div>
-        <div class="servicio reveal reveal-delay-3">
-          <span class="servicio-num">S.03</span>
-          <div class="servicio-title">Expansión a nuevos mercados</div>
-          <p class="servicio-desc">Llevamos tecnología a municipios y comunidades que el mercado convencional ignora, abriendo nuevas oportunidades de crecimiento.</p>
         </div>
       </div>
     </div>
@@ -1736,7 +1908,7 @@
             </div>
           </div>
           <div class="contact-address" style="margin-top:24px;">
-            <div class="address-label">Sede Matriz</div>
+            <div class="address-label">Sede / Ubicación</div>
             <div class="address-text">Puebla, México</div>
           </div>
         </div>
@@ -1798,7 +1970,7 @@
     <div class="container">
       <div class="footer-inner">
         <div class="footer-left">
-          <span class="footer-copy">&copy; 2026 Batalla Group S.A.S. Todos los derechos reservados. · Puebla, México</span>
+          <span class="footer-copy">&copy; 2026 Batalla Group · En proceso de registro legal como S.A.S. Todos los derechos reservados. · Puebla, México</span>
         </div>
         <div class="footer-links">
           <a href="privacidad.html">Política de privacidad</a>
