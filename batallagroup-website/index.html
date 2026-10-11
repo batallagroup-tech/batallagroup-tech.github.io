@@ -1555,6 +1555,130 @@
       .phone-vor-screen { min-height: 480px; }
     }
 
+  
+    /* ── CAROUSEL & YA VOY 3-PHONES CSS ── */
+    .carousel-arrow-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      backdrop-filter: blur(8px);
+    }
+    .carousel-arrow-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.35);
+      transform: scale(1.06);
+    }
+    .app-slide {
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .app-slide.hidden-slide {
+      display: none !important;
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    
+    /* Trio Phones Container */
+    .trio-phones-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 520px;
+      perspective: 1400px;
+      padding: 20px 0;
+    }
+    .trio-phone-glow {
+      position: absolute;
+      width: 380px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(156,13,56,0.35) 0%, rgba(225,29,72,0.15) 50%, transparent 70%);
+      filter: blur(48px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .trio-phone {
+      border-radius: 36px;
+      background: #09090b;
+      border: 2px solid #27272a;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.9);
+      position: absolute;
+      transition: all 0.5s cubic-bezier(0.16,1,0.3,1);
+    }
+    
+    /* Phone Left: Ya Voy Negocios */
+    .trio-phone-left {
+      width: 200px;
+      height: 410px;
+      left: 10px;
+      transform: rotateY(16deg) rotateX(6deg) scale(0.88);
+      z-index: 1;
+      opacity: 0.85;
+      padding: 8px;
+    }
+    .trio-phone-left:hover {
+      transform: rotateY(8deg) scale(0.95);
+      z-index: 4;
+      opacity: 1;
+    }
+    
+    /* Phone Right: Ya Voy Repartidor */
+    .trio-phone-right {
+      width: 200px;
+      height: 410px;
+      right: 10px;
+      transform: rotateY(-16deg) rotateX(6deg) scale(0.88);
+      z-index: 1;
+      opacity: 0.85;
+      padding: 8px;
+    }
+    .trio-phone-right:hover {
+      transform: rotateY(-8deg) scale(0.95);
+      z-index: 4;
+      opacity: 1;
+    }
+    
+    /* Phone Center: Ya Voy Usuario */
+    .trio-phone-center {
+      width: 240px;
+      height: 480px;
+      position: relative;
+      z-index: 3;
+      transform: translateY(-8px);
+      box-shadow: 0 30px 70px -10px rgba(0,0,0,0.95), 0 0 40px rgba(156,13,56,0.25);
+      padding: 10px;
+    }
+    .trio-phone-center:hover {
+      transform: translateY(-14px) scale(1.02);
+    }
+    
+    @media (max-width: 900px) {
+      .trio-phones-wrapper {
+        min-height: 440px;
+      }
+      .trio-phone-left {
+        width: 150px;
+        height: 320px;
+        left: 0;
+      }
+      .trio-phone-right {
+        width: 150px;
+        height: 320px;
+        right: 0;
+      }
+      .trio-phone-center {
+        width: 200px;
+        height: 400px;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -1569,7 +1693,7 @@
           <a href="#aplicaciones">Nuestras Apps</a>
           <a href="#equipo">Equipo</a>
           <a href="#contacto">Contacto</a>
-          <a href="https://play.google.com/store/apps/details?id=com.batallagroup.vor" target="_blank" rel="noopener" class="btn-batalla-id" style="color: #00ff88; border-color: rgba(0,255,136,0.35);">Descargar VoR ➔</a>
+          
         </nav>
         <button class="hamburger" id="hamburger" aria-label="Menú">
           <span></span><span></span><span></span>
@@ -1583,7 +1707,7 @@
     <a href="#aplicaciones" class="mobile-link">Nuestras Aplicaciones</a>
     <a href="#equipo" class="mobile-link">Equipo</a>
     <a href="#contacto" class="mobile-link">Contacto</a>
-    <a href="https://play.google.com/store/apps/details?id=com.batallagroup.vor" target="_blank" class="mobile-link" style="color: #00ff88; font-weight:700;">Descargar VoR en Google Play ➔</a>
+    
   </div>
 
   <!-- ══ HERO ══ -->
@@ -1657,18 +1781,35 @@
         Creamos experiencias nativas pensadas para divertir, facilitar la vida diaria y conectar a las personas con el mejor rendimiento.
       </p>
 
-      <!-- SHOWCASE PRINCIPAL: VoR - VERDAD O RETO (3D PHONE) -->
-      <div style="background: linear-gradient(145deg, rgba(20,20,28,0.95) 0%, rgba(12,12,16,0.95) 100%); border: 1px solid var(--border-light); border-radius: 28px; padding: 48px 36px; margin-bottom: 48px; box-shadow: 0 24px 60px rgba(0,0,0,0.6);" class="reveal">
-        <div style="display: grid; grid-template-columns: 1.15fr 1fr; gap: 50px; align-items: center;" class="showcase-desktop-grid">
-          
+      <!-- SHOWCASE PRINCIPAL CON CARRUSEL INTERACTIVO -->
+      <div style="background: linear-gradient(145deg, rgba(20,20,28,0.95) 0%, rgba(12,12,16,0.95) 100%); border: 1px solid var(--border-light); border-radius: 28px; padding: 40px 36px 48px; margin-bottom: 48px; box-shadow: 0 24px 60px rgba(0,0,0,0.6); position: relative;" class="reveal">
+        
+        <!-- HEADER DEL CINTILLO CON CONTROLES MINIMALISTAS A LA DERECHA -->
+        <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 24px; margin-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.07);">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #f43f5e; box-shadow: 0 0 10px #f43f5e;"></span>
+            <span style="font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-secondary);">Destacados del Estudio</span>
+          </div>
+
+          <!-- CONTROLES MINIMALISTAS DEL CARRUSEL (FLECHITA) -->
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span id="carousel-indicator" style="font-family: 'Space Grotesk', sans-serif; font-size: 11px; color: var(--text-muted); font-weight: 700; letter-spacing: 0.1em;">01 / 02</span>
+            <button id="carousel-prev-btn" onclick="switchAppSlide(0)" aria-label="Aplicación anterior" class="carousel-arrow-btn" title="Verdad o Reto">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button id="carousel-next-btn" onclick="switchAppSlide(1)" aria-label="Siguiente aplicación" class="carousel-arrow-btn" title="Ya Voy">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- ══ SLIDE 1: VoR - VERDAD O RETO ══ -->
+        <div id="slide-vor" class="app-slide" style="display: grid; grid-template-columns: 1.15fr 1fr; gap: 50px; align-items: center;">
           <!-- LADO IZQUIERDO: INFORMACIÓN DE VOR -->
           <div>
             <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 16px;">
               <span class="badge" style="border-color: #f43f5e; color: #f43f5e; background: rgba(244,63,94,0.1); font-weight: 700;">
                 ★ Aplicación Más Popular
-              </span>
-              <span class="badge" style="border-color: #00e676; color: #00e676; background: rgba(0,230,118,0.1);">
-                Aprobada en Google Play
               </span>
             </div>
             
@@ -1712,7 +1853,7 @@
             </div>
           </div>
 
-          <!-- LADO DERECHO: TELÉFONO 3D EN CSS -->
+          <!-- LADO DERECHO: TELÉFONO 3D DE VOR -->
           <div class="phone-3d-wrapper">
             <div class="phone-3d-glow"></div>
             
@@ -1728,8 +1869,8 @@
             <div class="floating-badge floating-badge-bottom">
               <span style="color: #00e676; font-size: 18px;">★</span>
               <div>
-                <p style="font-size: 10px; font-weight: 800; color: #fff; margin: 0;">Oficial Google Play</p>
-                <p style="font-size: 9px; color: #00e676; margin: 0;">Aprobada y Activa</p>
+                <p style="font-size: 10px; font-weight: 800; color: #fff; margin: 0;">Google Play</p>
+                <p style="font-size: 9px; color: #a1a1aa; margin: 0;">En Producción</p>
               </div>
             </div>
 
@@ -1756,7 +1897,7 @@
                   <span class="vor-badge-mode">Modo: Fiesta Picante</span>
                 </div>
 
-                <!-- Tarjeta de juego interactiva visual -->
+                <!-- Tarjeta de juego -->
                 <div class="vor-card">
                   <div class="vor-card-tag">
                     <span>⚡ RETO · RONDA 08</span>
@@ -1779,8 +1920,160 @@
               </div>
             </div>
           </div>
-
         </div>
+
+        <!-- ══ SLIDE 2: YA VOY (ECOSISTEMA DE 3 APLICACIONES) ══ -->
+        <div id="slide-yavoy" class="app-slide hidden-slide" style="display: grid; grid-template-columns: 1.15fr 1fr; gap: 50px; align-items: center;">
+          <!-- LADO IZQUIERDO: INFORMACIÓN DE YA VOY -->
+          <div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 16px;">
+              <span class="badge" style="border-color: #9C0D38; color: #ff4d6d; background: rgba(156,13,56,0.12); font-weight: 700;">
+                🛵 Ecosistema Completo
+              </span>
+              <span class="badge" style="border-color: rgba(255,255,255,0.2); color: var(--text-secondary);">
+                En Desarrollo &amp; Pruebas
+              </span>
+            </div>
+            
+            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 800; text-transform: uppercase; line-height: 1.1; margin-bottom: 20px; background: linear-gradient(135deg, #ffffff 30%, #ff4d6d 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+              Ya Voy — Red de Delivery
+            </h3>
+
+            <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; margin-bottom: 28px; font-weight: 300;">
+              Una plataforma integral de tres aplicaciones nativas sincronizadas en tiempo real. Diseñada para llevar comida, tiendas de conveniencia y envíos vecinales a cada rincón del México real sin comisiones abusivas.
+            </p>
+
+            <!-- Lista de las 3 Apps del Ecosistema -->
+            <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px;">
+              <div style="display: flex; align-items: flex-start; gap: 14px; background: rgba(255,255,255,0.02); padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06);">
+                <span style="font-size: 20px;">📱</span>
+                <div>
+                  <strong style="color: #fff; font-size: 0.95rem;">1. Ya Voy Usuario</strong>
+                  <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 2px 0 0; line-height: 1.5;">Exploración de comida, tiendas locales, pedidos con carrito compartido y rastreo de repartidor con GPS en vivo.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: flex-start; gap: 14px; background: rgba(255,255,255,0.02); padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06);">
+                <span style="font-size: 20px;">🛵</span>
+                <div>
+                  <strong style="color: #fff; font-size: 0.95rem;">2. Ya Voy Repartidor</strong>
+                  <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 2px 0 0; line-height: 1.5;">Aceptación de entregas, cálculo transparente de tarifas y ganancias, y navegación guiada a negocios y domicilios.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: flex-start; gap: 14px; background: rgba(255,255,255,0.02); padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06);">
+                <span style="font-size: 20px;">🏪</span>
+                <div>
+                  <strong style="color: #fff; font-size: 0.95rem;">3. Ya Voy Negocios</strong>
+                  <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 2px 0 0; line-height: 1.5;">Punto de venta móvil para recepción de órdenes, administración de menú en vivo y comunicación directa con clientes.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Estado de desarrollo -->
+            <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center;">
+              <div style="background: rgba(156,13,56,0.15); border: 1px solid rgba(156,13,56,0.4); color: #ff6b8b; padding: 14px 24px; border-radius: 8px; font-weight: 700; font-size: 13px; display: inline-flex; align-items: center; gap: 10px;">
+                <span>🚀</span> En Pruebas Cerradas · Lanzamiento Próximo
+              </div>
+              <span style="font-size: 11px; color: var(--text-muted); font-weight: 400;">3 Apps Nativas Android</span>
+            </div>
+          </div>
+
+          <!-- LADO DERECHO: TRIO DE TELÉFONOS 3D EN CSS -->
+          <div class="trio-phones-wrapper">
+            <div class="trio-phone-glow"></div>
+
+            <!-- TELÉFONO IZQUIERDA: YA VOY NEGOCIOS -->
+            <div class="trio-phone trio-phone-left">
+              <div style="width: 50px; height: 10px; background: #000; border-radius: 10px; margin: 2px auto 6px;"></div>
+              <div style="background: #0f172a; border-radius: 24px; height: calc(100% - 20px); overflow: hidden; padding: 10px 8px; font-size: 8px; color: #fff; display: flex; flex-direction: column;">
+                <div style="font-size: 8px; font-weight: 800; color: #00e676; margin-bottom: 4px; display: flex; justify-content: space-between;">
+                  <span>🏪 COMERCIO</span>
+                  <span>EN VIVO</span>
+                </div>
+                <div style="background: rgba(255,255,255,0.06); padding: 8px 6px; border-radius: 8px; margin-bottom: 6px;">
+                  <strong style="font-size: 9px; color: #fff;">Orden #1042</strong>
+                  <p style="margin: 2px 0 0; color: #94a3b8; font-size: 7px;">2x Tacos de Asada · $90</p>
+                  <div style="background: #00c853; color: #000; padding: 4px; border-radius: 4px; text-align: center; font-weight: 800; margin-top: 6px;">ACEPTAR PEDIDO</div>
+                </div>
+                <div style="background: rgba(255,255,255,0.04); padding: 6px; border-radius: 8px; margin-top: auto;">
+                  <span style="color: #94a3b8; font-size: 7px;">Ventas de hoy: $1,450</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- TELÉFONO CENTRO: YA VOY USUARIO (PROTAGONISTA) -->
+            <div class="trio-phone trio-phone-center">
+              <div style="width: 70px; height: 14px; background: #000; border-radius: 14px; margin: 3px auto 8px;"></div>
+              <div style="background: #0b0f19; border-radius: 28px; height: calc(100% - 28px); overflow: hidden; display: flex; flex-direction: column; border: 1px solid rgba(255,255,255,0.08);">
+                
+                <!-- Header Usuario -->
+                <div style="padding: 10px 12px; background: #111827; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: space-between;">
+                  <div>
+                    <span style="font-size: 7px; color: #94a3b8; text-transform: uppercase; font-weight: 800; letter-spacing: 0.1em;">Entregar en</span>
+                    <p style="margin: 0; font-size: 10px; font-weight: 800; color: #fff;">Mi Ubicación 📍</p>
+                  </div>
+                  <div style="width: 20px; height: 20px; border-radius: 50%; background: #9C0D38; display: flex; align-items: center; justify-content: center; font-size: 9px; color: #fff;">👤</div>
+                </div>
+
+                <!-- Categorías -->
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; padding: 10px 10px 6px;">
+                  <div style="background: #9C0D38; border-radius: 10px; padding: 10px 4px; text-align: center; color: #fff; font-size: 8px; font-weight: 800;">
+                    🍔 COMIDA
+                  </div>
+                  <div style="background: #1e293b; border-radius: 10px; padding: 10px 4px; text-align: center; color: #94a3b8; font-size: 8px; font-weight: 700;">
+                    🏪 TIENDA
+                  </div>
+                  <div style="background: #1e293b; border-radius: 10px; padding: 10px 4px; text-align: center; color: #94a3b8; font-size: 8px; font-weight: 700;">
+                    📦 ENVÍOS
+                  </div>
+                </div>
+
+                <!-- Restaurante card -->
+                <div style="padding: 8px 10px; margin: 6px 10px; background: #1e293b; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                    <strong style="font-size: 9px; color: #fff;">Taquería Los Amigos</strong>
+                    <span style="color: #ffb703; font-size: 8px; font-weight: 800;">★ 4.8</span>
+                  </div>
+                  <p style="margin: 0; font-size: 7px; color: #94a3b8;">Tacos, Tortas · 20-30 min · $15 envío</p>
+                </div>
+
+                <!-- Bottom Tab Bar -->
+                <div style="margin-top: auto; padding: 8px; background: #111827; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-around; font-size: 7px; color: #94a3b8; font-weight: 700;">
+                  <span style="color: #ff4d6d;">¡YA VOY!</span>
+                  <span>EXPLORAR</span>
+                  <span>PEDIDOS</span>
+                  <span>PERFIL</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- TELÉFONO DERECHA: YA VOY REPARTIDOR -->
+            <div class="trio-phone trio-phone-right">
+              <div style="width: 50px; height: 10px; background: #000; border-radius: 10px; margin: 2px auto 6px;"></div>
+              <div style="background: #0f172a; border-radius: 24px; height: calc(100% - 20px); overflow: hidden; padding: 10px 8px; font-size: 8px; color: #fff; display: flex; flex-direction: column;">
+                <div style="font-size: 8px; font-weight: 800; color: #38bdf8; margin-bottom: 4px; display: flex; justify-content: space-between;">
+                  <span>🛵 REPARTIDOR</span>
+                  <span style="color: #00e676;">DISPONIBLE</span>
+                </div>
+                <!-- Mapa simulado -->
+                <div style="background: #1e293b; height: 110px; border-radius: 8px; position: relative; overflow: hidden; margin-bottom: 6px; display: flex; align-items: center; justify-content: center;">
+                  <div style="width: 100%; height: 1px; background: rgba(255,255,255,0.1); position: absolute;"></div>
+                  <div style="height: 100%; width: 1px; background: rgba(255,255,255,0.1); position: absolute;"></div>
+                  <div style="background: #9C0D38; color: #fff; padding: 4px 6px; border-radius: 12px; font-size: 7px; font-weight: 800; z-index: 2;">
+                    📍 Recoger Pedido (1.2 km)
+                  </div>
+                </div>
+                <div style="background: rgba(255,255,255,0.04); padding: 6px; border-radius: 8px; margin-top: auto;">
+                  <span style="color: #00e676; font-size: 8px; font-weight: 800;">Ganancia: $42 MXN</span>
+                  <div style="background: #2563eb; color: #fff; padding: 4px; border-radius: 4px; text-align: center; font-weight: 800; margin-top: 4px; font-size: 7px;">INICIAR RUTA</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
 
       <!-- PRÓXIMOS LANZAMIENTOS -->
@@ -1795,19 +2088,19 @@
           <!-- PRÓXIMA APP 1: YA VOY -->
           <div class="product-card reveal reveal-delay-1" style="display: flex; flex-direction: column; justify-content: space-between; border-color: rgba(255,255,255,0.08);">
             <div>
-              <span class="badge" style="border-color: var(--accent-cyan); color: var(--accent-cyan); margin-bottom: 14px;">
-                En Pruebas · Muy Pronto
+              <span class="badge" style="border-color: #00e699; color: #00e699; margin-bottom: 14px; background: rgba(0,230,153,0.08);">
+                🍄 En Desarrollo · Próximamente
               </span>
               <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.6rem; font-weight: 700; text-transform: uppercase; margin: 12px 0 10px;">
-                Ya Voy — Delivery Local
+                Myco — Mensajería Privada
               </h4>
               <p class="product-desc" style="margin-bottom: 20px;">
-                Plataforma hiperlocal de delivery de comida, mandados y comercio vecinal diseñada para conectar clientes, negocios y repartidores sin comisiones desmedidas.
+                Aplicación de mensajería privada y descentralizada. Cero recopilación de datos personales, cifrado de extremo a extremo y comunicación protegida sin servidores invasivos.
               </p>
             </div>
             <div>
               <span style="font-size: 11px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;">
-                Ecosistema de Usuarios y Repartidores
+                Protocolo Seguro &amp; Descentralizado
               </span>
             </div>
           </div>
@@ -1844,7 +2137,9 @@
       <div class="section-label reveal-left">05 — Equipo</div>
       <div class="equipo-grid">
         <div class="team-card reveal reveal-delay-1">
-          <div class="team-avatar">RAB</div>
+          <div class="team-avatar" style="width: 76px; height: 76px; padding: 0; overflow: hidden; border: 2px solid rgba(255,255,255,0.2); box-shadow: 0 8px 24px rgba(0,0,0,0.5); background: #18181b;">
+            <img src="ramses-batalla.png" alt="Ramses Antonio Batalla Franco" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;" />
+          </div>
           <div class="team-name">Ramses Antonio Batalla Franco</div>
           <div class="team-role">CEO &amp; Fundador</div>
           <p class="team-bio">
@@ -2636,6 +2931,29 @@
       </div>
     </div>
   </div>
-  <script src="https://ads.insider-mail.com/static/widget.js" data-customer-id="mch-batallagroup-tech-github-io"></script>
+  <script src="https://ads.insider-mail.com/static/widget.js" data-customer-id="mch-batallagroup-tech-github-io">
+    // ── App Showcase Carousel (VoR <-> Ya Voy) ──
+    function switchAppSlide(index) {
+      const slideVor = document.getElementById('slide-vor');
+      const slideYavoy = document.getElementById('slide-yavoy');
+      const indicator = document.getElementById('carousel-indicator');
+      if (!slideVor || !slideYavoy) return;
+      
+      if (index === 0) {
+        slideVor.classList.remove('hidden-slide');
+        slideVor.style.display = 'grid';
+        slideYavoy.classList.add('hidden-slide');
+        slideYavoy.style.display = 'none';
+        if (indicator) indicator.textContent = '01 / 02';
+      } else {
+        slideVor.classList.add('hidden-slide');
+        slideVor.style.display = 'none';
+        slideYavoy.classList.remove('hidden-slide');
+        slideYavoy.style.display = 'grid';
+        if (indicator) indicator.textContent = '02 / 02';
+      }
+    }
+
+  </script>
 </body>
 </html>
