@@ -28,12 +28,12 @@
     <header>
       <div class="logo-badge">🍄 Myco &bull; Batalla Group</div>
       <h1>Política de Privacidad</h1>
-      <p>Última actualización: 3 de octubre de 2026</p>
+      <p>Última actualización: 2 de noviembre de 2026</p>
     </header>
 
     <div class="card">
       <p style="margin: 0; color: #00E699; font-weight: 600;">
-        Resumen de Privacidad: Myco es una aplicación de mensajería privada y descentralizada. NO recopilamos, NO almacenamos ni vendemos ningún tipo de dato personal, número de teléfono o registro de actividad.
+        Resumen de Privacidad: Myco es una aplicación de mensajería privada y descentralizada. NO recopilamos, NO almacenamos en servidores propios ni vendemos ningún tipo de dato personal, ubicación, audio, número de teléfono o registro de actividad.
       </p>
     </div>
 
@@ -43,33 +43,37 @@
     <h2>2. Datos Personales y Cero Recopilación</h2>
     <p>Myco está fundamentada en el principio de <strong>Privacidad por Diseño (Privacy by Design)</strong>:</p>
     <ul>
-      <li><strong>Sin registro ni credenciales:</strong> No solicitamos tu nombre real, número de teléfono, correo electrónico ni contactos de tu agenda.</li>
-      <li><strong>Identidad Criptográfica:</strong> Tu identidad se genera de forma matemática y local en tu dispositivo mediante pares de claves criptográficas asimétricas.</li>
-      <li><strong>Sin bases de datos centrales:</strong> Batalla Group no posee servidores de base de datos donde se registren tus mensajes o información personal.</li>
+      <li><strong>Sin registro ni credenciales:</strong> No solicitamos tu nombre real, número de teléfono obligatorio, correo electrónico ni acceso a los contactos de tu agenda.</li>
+      <li><strong>Identidad Criptográfica Local:</strong> Tu identidad se genera de forma matemática y local en tu dispositivo mediante pares de claves criptográficas asimétricas almacenadas en almacenamiento seguro cifrado (EncryptedSharedPreferences / Android Keystore).</li>
+      <li><strong>Sin bases de datos centrales:</strong> Batalla Group no posee servidores de base de datos donde se registren tus mensajes, contactos, ubicaciones o información personal.</li>
     </ul>
 
     <h2>3. Cifrado de Extremo a Extremo (E2EE)</h2>
-    <p>Todos los mensajes enviados a través de Myco se cifran y descifran exclusivamente en los dispositivos finales utilizando algoritmos criptográficos robustos de grado militar (<strong>ECDH P-256 + AES-256-GCM + ECDSA SHA-256</strong>). Ni intermediarios, ni relays, ni Batalla Group pueden descifrar o leer el contenido de tus comunicaciones.</p>
+    <p>Todos los mensajes privados y notas de voz enviados a través de Myco se cifran y descifran exclusivamente en los dispositivos finales utilizando algoritmos criptográficos modernos de curva elíptica (<strong>X25519 + XSalsa20-Poly1305 NaCl Box + firmas digitales Ed25519</strong>). Ni los nodos intermediarios de la malla, ni los relays públicos, ni Batalla Group pueden descifrar o leer el contenido de tus comunicaciones privadas. Únicamente las alertas públicas de emergencia (canal SOS) se emiten de forma abierta cuando el usuario las activa expresamente para solicitar auxilio a nodos cercanos.</p>
 
-    <h2>4. Arquitectura de Transmisión (Mesh BLE y Relays Descentralizados)</h2>
+    <h2>4. Arquitectura de Transmisión Híbrida (Mesh BLE, Wi-Fi Direct, Relays y SMS)</h2>
     <ul>
-      <li><strong>Red Mesh Local (Bluetooth Low Energy):</strong> Permite la comunicación directa dispositivo a dispositivo sin conexión a internet. Los paquetes en tránsito se almacenan temporalmente y cifrados en memoria local para saltos de red y son eliminados automáticamente al expirar su tiempo de vida (TTL).</li>
-      <li><strong>Relays Descentralizados (Larga Distancia):</strong> Para mensajería por internet, Myco utiliza nodos descentralizados públicos (protocolo Nostr). Los eventos transmitidos contienen únicamente el paquete cifrado ininteligible para terceros.</li>
+      <li><strong>Red Mesh Local (Bluetooth Low Energy y Wi-Fi Direct P2P):</strong> Permite la comunicación directa dispositivo a dispositivo sin conexión a internet (de 10 a 200 metros). Los paquetes en tránsito se almacenan temporalmente y cifrados en memoria local para saltos de red y son eliminados automáticamente al entregarse o al expirar su tiempo de vida (TTL).</li>
+      <li><strong>Relays Descentralizados (Larga Distancia):</strong> Cuando existe conexión a internet, Myco transmite los paquetes cifrados a través de relays públicos redundantes (Nostr / ntfy). Los eventos transmitidos contienen únicamente el paquete cifrado ininteligible para terceros.</li>
+      <li><strong>Respaldo por SMS (Opcional):</strong> Cuando el usuario decide enviar un paquete por SMS sin internet, Myco prepara el texto cifrado y abre la aplicación de mensajería predeterminada del sistema (mediante Intent <code>ACTION_SENDTO</code>), sin requerir permisos de lectura ni envío silencioso de SMS.</li>
     </ul>
 
-    <h2>5. Permisos del Dispositivo</h2>
-    <p>La aplicación solicita únicamente los permisos indispensables para su operación local:</p>
+    <h2>5. Permisos del Dispositivo y su Finalidad Exclusiva</h2>
+    <p>La aplicación solicita únicamente los permisos técnicos indispensables para su operación local y descentralizada:</p>
     <ul>
-      <li><strong>Bluetooth (Escanear, Conectar, Anunciar):</strong> Requerido para establecer la red de malla local sin conexión a internet.</li>
-      <li><strong>Cámara:</strong> Requerido únicamente para escanear códigos QR de contactos de forma local en tiempo real. No se toman fotos ni se envían imágenes a servidores.</li>
-      <li><strong>Notificaciones:</strong> Para avisarte en la barra de estado cuando recibas un nuevo mensaje cifrado.</li>
+      <li><strong>Bluetooth (<code>BLUETOOTH_SCAN</code>, <code>BLUETOOTH_CONNECT</code>, <code>BLUETOOTH_ADVERTISE</code>) y Servicio en Primer Plano (<code>FOREGROUND_SERVICE_CONNECTED_DEVICE</code>):</strong> Requeridos para descubrir nodos Myco cercanos y mantener activa la malla de comunicación sin internet.</li>
+      <li><strong>Ubicación (<code>ACCESS_FINE_LOCATION</code>, <code>ACCESS_COARSE_LOCATION</code>):</strong> Exigido técnicamente por el sistema operativo Android para permitir el descubrimiento de dispositivos cercanos por Bluetooth LE y Wi-Fi Direct. Adicionalmente, se utiliza de forma opcional únicamente cuando el usuario pulsa manualmente el botón de adjuntar coordenadas GPS en un chat o en una alerta de emergencia SOS. Batalla Group jamás rastrea ni almacena tu ubicación en ningún servidor.</li>
+      <li><strong>Dispositivos Wi-Fi Cercanos (<code>NEARBY_WIFI_DEVICES</code> / Wi-Fi Direct):</strong> Requerido para establecer enlaces P2P directos de hasta 200 metros entre teléfonos sin pasar por routers ni internet.</li>
+      <li><strong>Micrófono (<code>RECORD_AUDIO</code> — Opcional):</strong> Utilizado exclusivamente cuando el usuario presiona manualmente el botón de nota de voz en un chat para grabar un audio breve tipo walkie-talkie. El audio se comprime en la memoria caché temporal, se cifra de extremo a extremo y el archivo temporal se elimina de inmediato. Myco jamás graba audio en segundo plano.</li>
+      <li><strong>Cámara (<code>CAMERA</code> — Opcional):</strong> Requerido únicamente cuando el usuario abre el escáner para leer el código QR de un contacto en tiempo real. No se toman fotografías ni se almacenan imágenes.</li>
+      <li><strong>Notificaciones (<code>POST_NOTIFICATIONS</code>):</strong> Para avisarte en la barra de estado cuando recibas un nuevo mensaje cifrado, solicitud de contacto o alerta SOS.</li>
     </ul>
 
     <h2>6. Publicidad y Rastreadores</h2>
-    <p>Myco <strong>NO contiene anuncios publicitarios</strong>, NO integra SDKs de rastreo (trackers) de terceros y NO utiliza el identificador de publicidad de Google (AD_ID).</p>
+    <p>Myco <strong>NO contiene anuncios publicitarios</strong>, NO integra SDKs de análisis ni rastreo (trackers) de terceros y NO utiliza el identificador de publicidad de Google (AD_ID).</p>
 
-    <h2>7. Eliminación y Control de tus Datos</h2>
-    <p>El usuario tiene control absoluto sobre su información. Puedes borrar mensajes individuales, vaciar conversaciones completas o eliminar todas las claves criptográficas desinstalando la app o restableciendo la identidad desde los Ajustes.</p>
+    <h2>7. Eliminación, Mensajes Efímeros y Control de tus Datos</h2>
+    <p>El usuario tiene control absoluto sobre su información en todo momento. Puedes configurar el temporizador de autodestrucción de mensajes efímeros (desde 15 minutos hasta 7 días), proteger la aplicación con un PIN local de seguridad, borrar mensajes individuales, vaciar conversaciones completas o eliminar todas las claves criptográficas desinstalando la aplicación.</p>
 
     <h2>8. Contacto</h2>
     <p>Para cualquier aclaración sobre esta política de privacidad, escribe a: <a href="mailto:batallagroup@gmail.com">batallagroup@gmail.com</a>.</p>
